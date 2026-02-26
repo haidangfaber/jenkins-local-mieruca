@@ -5,6 +5,8 @@ services:
     restart: unless-stopped
     ports:
       - "8080:8080"
+    args:
+        DOCKER_GID: 1001
     volumes:
       - jenkins_home:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
