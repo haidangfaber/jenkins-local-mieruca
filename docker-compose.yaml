@@ -1,12 +1,13 @@
-services: 
+services:
   local-mieruca-jenkins:
-    build: .
+    build:
+      context: .
+      args:
+        DOCKER_GID: 1001
     container_name: local-mieruca-jenkins
     restart: unless-stopped
     ports:
       - "8080:8080"
-    args:
-        DOCKER_GID: 1001
     volumes:
       - jenkins_home:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
